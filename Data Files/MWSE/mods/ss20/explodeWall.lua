@@ -46,7 +46,7 @@ local function onActivate(e)
                 callback = function()
                     event.trigger("SS20:DestroyWall", { wall = e.target })
                 end
-            } 
+            }
         end
     end
 end
@@ -55,7 +55,7 @@ event.register("activate", onActivate)
 
 local function disableWallsOnLoad()
     for ref in tes3.player.cell:iterateReferences(tes3.objectType.activator) do
-        if ref.data.ss20DoDestroy == true then
+        if ref.data and ref.data.ss20DoDestroy == true then
             removeWall({ wall = ref })
         end
     end

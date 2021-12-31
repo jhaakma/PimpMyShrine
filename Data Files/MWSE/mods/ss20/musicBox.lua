@@ -130,7 +130,7 @@ event.register("objectInvalidated", onWallObjectInvalidated)
 
 local function offMusicBoxOnLoad()
     for ref in tes3.player.cell:iterateReferences(tes3.objectType.activator) do
-        if ref.data.ss20playState then
+        if ref.data and ref.data.ss20playState then
             local musicBox = ref
             tes3.playAnimation{
                 reference = musicBox ,

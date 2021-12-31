@@ -320,7 +320,8 @@ end
 function this.isAllowedToManipulate()
     local inShrine = tes3.player.cell.id == this.config.shrineTeleportPosition.cell
     local inBoudoir = tes3.player.cell.id == this.config.horavathaTeleportPosition.cell
-    local finishedQuest = tes3.getJournalIndex{id = "ss20_CS"} >= 100
+    local jIndex = tes3.getJournalIndex{id = "ss20_CS"}
+    local finishedQuest = jIndex and jIndex >= 100
     local isInside = tes3.player.cell.isInterior
 
     local ss20_main_i = tes3.getJournalIndex({id="ss20_main"})

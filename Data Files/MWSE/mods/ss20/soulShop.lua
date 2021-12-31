@@ -151,7 +151,7 @@ local function updatePreviewPane()
     local shopMenu = tes3ui.findMenu(uiids.shopMenu)
     if not shopMenu then return end
     common.log:debug("itemId: %s", itemId)
-    local item = tes3.getObject(itemId)
+    local item = tes3.getObject(itemId)---@type any
     if item then
 
         --image preview block
@@ -166,7 +166,7 @@ local function updatePreviewPane()
         local nifPreviewBlock = shopMenu:findChild(uiids.nifPreviewBlock)
         if nifPreviewBlock then 
             nifPreviewBlock:destroyChildren()
-            local nif = nifPreviewBlock:createNif{ id = uiids.nif, path = item.mesh}
+            local nif = nifPreviewBlock:createNif{ id = uiids.nif, path = item.mesh}---@type any
             if not nif then return end 
             --nif.scaleMode = true
             shopMenu:updateLayout()
